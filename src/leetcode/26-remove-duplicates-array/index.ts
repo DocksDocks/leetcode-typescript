@@ -3,8 +3,8 @@
 function removeDuplicates(nums: number[]): number {
     let t: number[] = [];
     nums.forEach(n => {
-        const alreadyInT = t.includes(n);
-        if (!alreadyInT) {
+        const hasValue = t.includes(n);
+        if (!hasValue) {
             t.push(n)
         }
     })
