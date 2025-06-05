@@ -1,22 +1,21 @@
 // src/leetcode/daily/2025/June/04.ts
 // https://leetcode.com/problems/find-the-lexicographically-largest-string-from-the-box-i/?envType=daily-question&envId=2025-06-04
 
-// l = length, m = maxAnswerLength, a = answer, s = substring, e = end;
 function answerString(word: string, numFriends: number): string {
     if (numFriends === 1) {
         return word;
     }
-    const l = word.length;
-    const m = l - numFriends + 1
-    let a = "";
-    for (let i = 0; i < l; i++) {
-        const e = Math.min(i + m, l);
-        const s = word.substring(i, e);
-        if (s > a) {
-            a = s;
+    const length = word.length;
+    const maxAnswerLength = length - numFriends + 1
+    let answer = "";
+    for (let i = 0; i < length; i++) {
+        const end = Math.min(i + maxAnswerLength, length);
+        const substring = word.substring(i, end);
+        if (substring > answer) {
+            answer = substring;
         }
     }
-    return a;
+    return answer;
 };
 
 export default function main() {
